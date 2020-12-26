@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "DSM_SDK"
