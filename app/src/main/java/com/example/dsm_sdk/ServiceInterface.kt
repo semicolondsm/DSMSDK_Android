@@ -15,14 +15,14 @@ interface ServiceInterface {
         @Query("massage") massage : String
     ) : Call<DTObasic>
 
-    @GET
-    @POST("./")
+    @POST("dsmauth/token")
     fun postlogin(
-        @Query("access_token") access_token: String,
-        @Query("refresh_token") refresh_token: String,
-        @Body client_id: String,
-        @Body client_secret : String,
-        @Body code: Int
+           // @Query("access_token") access_token: String,
+            //@Query("refresh_token") refresh_token: String,
+            //@Field ("client_id")client_id: String,
+            //@Field ("client_sereet")client_secret : String,
+            //@Field ("code")code: Int,
+            @Body param: MutableMap<String, String>
 
     ) : Call<token>
 
@@ -31,9 +31,9 @@ interface ServiceInterface {
     @GET("./")
     fun getrefresh(
 
-        @Query ("code") code : Int,
-        @Query("access_token")access_token: String,
-        @Query("message") message: String
+            @Query ("code") code: Int,
+            @Query("access_token") access_token: String,
+            @Query("message") message: String
 
     ): Call<refresh>
 
