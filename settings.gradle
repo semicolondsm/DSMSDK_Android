@@ -1,2 +1,3 @@
+include ':DSM_SDK'
 include ':app'
 rootProject.name = "DSM_SDK"
