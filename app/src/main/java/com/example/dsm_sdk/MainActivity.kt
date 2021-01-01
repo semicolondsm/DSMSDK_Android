@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     Post["client_secret"] = "1234"
                     Post["code"] = "${code}"
                     //val c = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                     //startActivity(c)
+                    //startActivity(c)
                     Dsmauthfun_token(Post)
 
                     return false
