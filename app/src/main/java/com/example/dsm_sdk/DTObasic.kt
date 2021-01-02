@@ -1,21 +1,25 @@
 package com.example.dsm_sdk
 
-import android.provider.ContactsContract
-
-data class DTObasic(val name: String,
-                    val gcn: String,
-                    val email: String,
-                    val code: Int,
-                    val massage: String)
-
+import com.google.gson.annotations.SerializedName
 
 data class token(
-    val access_token: String,
-    val refrash_token: String
+        @SerializedName("access-token")
+        val access_token: String,
+        @SerializedName("refresh-token")
+        val refresh_token: String
+)
+
+
+data class DTObasic(
+        @SerializedName("name")
+        val name: String,
+        @SerializedName("gcn")
+        val gcn: String,
+        @SerializedName("email")
+        val email: String
 )
 
 data class refresh(
-    val code: Int,
-    val access_token: String,
-    val massage: String
+        @SerializedName("access-token")
+        val access_token: String,
 )
