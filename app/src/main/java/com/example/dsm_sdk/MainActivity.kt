@@ -56,12 +56,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
-
-
         Log.d("로그", "${webview.url}ㅁㄴㅇㄹㅁㅇㄹ")
         webview.webViewClient
-
 
         fun Dsmauth_refresh(){
             val Basic = BaseService.serverbasic?.getrefresh(3, "qwer1234", "qwer1234")
