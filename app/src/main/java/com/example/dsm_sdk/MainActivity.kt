@@ -21,15 +21,11 @@ import retrofit2.http.Headers
 
 class MainActivity : AppCompatActivity() {
 
-    var access_token: String = ""
-    var refrash_token: String = ""
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val webview: WebView = findViewById(R.id.webview)
-
 
         webview.settings.javaScriptEnabled = true // 자바스크립트 허용
         webview.webViewClient = WebViewClient()
