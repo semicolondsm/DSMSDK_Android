@@ -8,14 +8,14 @@ interface ServiceInterface {
     @GET("v1/info/basic?")
     fun getbasic(
             @Header("access-token") access_token : String,
-            @Query ("time")time : String,
+            @Query ("time")time : String
 
 
-            ) : Call<DTObasic>
+            ) : Call<DTOuser>
 
     @POST("dsmauth/token")
     fun postlogin(
-            @Body param: MutableMap<String, String>,
+            @Body param: MutableMap<String, String>
     ) : Call<token>
 
 

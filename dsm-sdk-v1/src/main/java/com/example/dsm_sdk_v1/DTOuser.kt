@@ -10,7 +10,7 @@ data class token(
 )
 
 
-data class DTObasic(
+data class DTOuser(
         @SerializedName("name")
         val name: String,
         @SerializedName("gcn")
@@ -21,5 +21,5 @@ data class DTObasic(
 
 data class refresh(
         @SerializedName("access-token")
-        val access_token: String,
+        val access_token: String
 )
