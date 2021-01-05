@@ -1,0 +1,47 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+	package
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:3:5-37
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:1-9:12
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:4:5-66
+	android:name
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:4:22-64
+application
+ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:5:4-8:19
+activity#com.example.dsm_sdk_v1.LoginClient
+ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:6:8-7:19
+	android:name
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:6:18-45
+uses-sdk
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+		ADDED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+		INJECTED from D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml

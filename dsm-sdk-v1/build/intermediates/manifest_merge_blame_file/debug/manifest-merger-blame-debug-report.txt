@@ -1,0 +1,25 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.dsm_sdk_v1"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:4:5-66
+11-->D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:4:22-64
+12
+13    <application>
+13-->D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:5:4-8:19
+14        <activity android:name="com.example.dsm_sdk_v1.LoginClient" >
+14-->D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:6:8-7:19
+14-->D:\AndroidStudioProjects\DSM_SDK2\dsm-sdk-v1\src\main\AndroidManifest.xml:6:18-45
+15        </activity>
+16    </application>
+17
+18</manifest>
