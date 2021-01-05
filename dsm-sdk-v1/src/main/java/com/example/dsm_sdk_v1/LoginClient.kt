@@ -1,4 +1,4 @@
-package com.example.dsm_sdk
+package com.example.dsm_sdk_v1
 
 
 import android.os.Build
@@ -8,10 +8,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dsm_sdk.BaseService.gson
+import com.example.dsm_sdk_v1.BaseService.gson
 import com.example.dsm_sdk_v1.DsmSdk.Companion.loginCallbackCom
 import com.example.dsm_sdk_v1.DsmSdk.Companion.mustDoCallback
-import com.example.dsm_sdk_v1.R
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -19,11 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginClient : AppCompatActivity() {
 
-    companion object{
-        @JvmStatic
-        val loginInstance by lazy { LoginClient() }
-    }
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sdk_layout)
@@ -39,7 +33,6 @@ class LoginClient : AppCompatActivity() {
                 view.loadUrl(url) // 바뀐 url을 가져옴
                 if (view.url?.contains("code") == true) {
                     val changeurl = view.url!! // 바뀐 url
-
                     //문자열 자르기!!
                     val code = changeurl.substring(changeurl.lastIndexOf("=") + 1) // 리다리엑트 url ?code= 의 뒷부분
                     post["client_id"] = intent.getStringExtra("client_id").toString() // 우리가 직접 넣어야됨
@@ -56,7 +49,6 @@ class LoginClient : AppCompatActivity() {
 
 
     private fun dsmAuthFunToken(Post: MutableMap<String, String>) {
-
         val Basic = BaseService.serverbasic?.postlogin(Post)
 
         Basic?.enqueue(object : retrofit2.Callback<token> {
@@ -92,14 +84,12 @@ class LoginClient : AppCompatActivity() {
                     mustDoCallback(token, null)
                 }
 
-                if (refresh_token == "") println("refresh_token 값이 없습니다! refresh_token 값을 받기 위해서 Dsmauthfun_token함수 먼저 사용해 주세요!!!")
             }
         })
     }
 
     private fun basicFun(access_token: String) {
         val time = System.currentTimeMillis().toString() // 시간 받는거
-
         val BaseRetrofit = Retrofit.Builder()
                 .baseUrl("http://54.180.98.91:8090/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -107,24 +97,21 @@ class LoginClient : AppCompatActivity() {
         val serverbasic: ServiceInterface? = BaseRetrofit.create(ServiceInterface::class.java) // severbasic 변수 사용해서 만드는 거
         val Basic = serverbasic?.getbasic("Bearer $access_token", time)
 
-
         Basic?.enqueue(object : retrofit2.Callback<DTOuser> {
             override fun onFailure(call: Call<DTOuser>, t: Throwable) {
                 t.printStackTrace()
             }
 
             override fun onResponse(call: Call<DTOuser>, response: Response<DTOuser>) {
-                if (access_token == "") println("access_token 값이 없습니다! access_token 값을 받기 위해서 Dsmauthfun_token 함수 먼저 사용해 주세요!!!")
-                if(response.body()!=null){
+                if (response.body() != null) {
                     val userName = response.body()?.name.toString()
                     val userGcn = response.body()?.gcn.toString()
                     val userEmail = response.body()?.email.toString()
-                    val inDto=DTOuser(userName,userGcn,userEmail)
+                    val inDto = DTOuser(userName, userGcn, userEmail)
                     loginCallbackCom(inDto)
+                    finish()
                 }
-
             }
         })
     }
-
 }

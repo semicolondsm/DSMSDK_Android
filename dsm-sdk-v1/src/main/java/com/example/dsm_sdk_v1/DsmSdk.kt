@@ -4,9 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dsm_sdk.DTOuser
-import com.example.dsm_sdk.LoginClient
-import com.example.dsm_sdk.token
 
 class DsmSdk : AppCompatActivity() {
     fun loginWithAuth(
@@ -19,7 +16,7 @@ class DsmSdk : AppCompatActivity() {
         doLoginWithAuth(clientId,clientPassword,context, callback,loginCallback)
     }
 
-    private fun doLoginWithAuth(clientId: String,clientPassword: String, context: Context, callback: (token: token?, error: Throwable?) -> Unit,loginCallback: (DTOuser?) -> Unit) {
+    private fun doLoginWithAuth(clientId: String, clientPassword: String, context: Context, callback: (token: token?, error: Throwable?) -> Unit, loginCallback: (DTOuser?) -> Unit) {
         mustDoCallback = callback
         loginCallbackCom=loginCallback
         appContext = context
