@@ -1,20 +1,55 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'com.novoda.bintray-release'
-}
-publish {
-    userOrg = rootProject.ext.userOrg
-    groupId = rootProject.ext.packageName
-    artifactId = rootProject.ext.artifactId
-    publishVersion = rootProject.ext.libVersionName
-    desc = rootProject.ext.description
-    website = rootProject.ext.websiteUrl
-    issueTracker = "${website}/issues"
-    repository = "${website}.git"
-}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
+version="0.0.1"
 
+publish{
+    bintrayUser='jaewonkim1468'
+    bintrayKey='24f8357110b70f28a4356716ff9922615570195f'
+    groupId='com.example.dsm_sdk_v1'
+    publishVersion=version
+    artifactId='dsmauth'
 
+    userOrg='jaewonkim1468'
+    repoName='dsm-sdk'
+    desc='This sdk provides login fuction for dsm'
+    website='https://github.com/semicolonDSM/DSMSDK_Android'
+    repository='https://github.com/semicolonDSM/DSMSDK_Android'
+    dryRun=false
+    override=false
+}
+subprojects {
+    group = this.group
+    version = this.version
+
+    def isUploading = project.getGradle().startParameter.taskNames.any {
+        it.contains('bintrayUpload')
+    }
+    if (isUploading && project.name in [MODULE_NAME]) {
+        apply plugin: 'maven'
+
+        def defaultPomPath = "build/publications/maven/pom-default.xml"
+        gradle.taskGraph.whenReady { taskGraph ->
+            taskGraph.getAllTasks().find {
+                it.path == ":$project.name:generatePomFileForMavenPublication"
+            }.doLast {
+                file(defaultPomPath).delete()
+
+                // Overriding POM file to make sure we can sync to maven central.
+                // See https://maven.apache.org/pom.html for more detail about POM.
+                pom {
+                    project {
+                        name project.publish.artifactId
+                        artifactId project.publish.artifactId
+                        packaging project.name == 'compiler' ? 'jar' : 'aar'
+                        url project.publish.website
+                        version this.version
+                    }
+                }.writeTo(defaultPomPath)
+            }
+        }
+    }
+}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
