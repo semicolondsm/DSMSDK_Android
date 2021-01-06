@@ -22,11 +22,14 @@ class LoginClient : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sdk_layout)
         val webview: WebView = findViewById(R.id.webview)
+        val redirectUrl=intent.getStringExtra("get_redirect").toString()
+        val clientId=intent.getStringExtra("get_client_id").toString()
+        val clientSecret=intent.getStringExtra("get_client_password").toString()
 
         webview.settings.javaScriptEnabled = true // 자바스크립트 허용
         webview.webViewClient = WebViewClient()
         webview.webChromeClient = WebChromeClient()
-        webview.loadUrl("http://193.123.237.232/external/login?redirect_url=https://www.google.com&client_id=hello")
+        webview.loadUrl("http://193.123.237.232/external/login?redirect_url=$redirectUrl&client_id=$clientId")
         val post = mutableMapOf<String, String>() // post api안 body안에 담을 것
         webview.setWebViewClient(object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -35,9 +38,9 @@ class LoginClient : AppCompatActivity() {
                     val changeurl = view.url!! // 바뀐 url
                     //문자열 자르기!!
                     val code = changeurl.substring(changeurl.lastIndexOf("=") + 1) // 리다리엑트 url ?code= 의 뒷부분
-                    post["client_id"] = intent.getStringExtra("client_id").toString() // 우리가 직접 넣어야됨
-                    post["client_secret"] = intent.getStringExtra("client_password").toString() // 우리가 직접 넣어야됨
-                    post["code"] = "${code}" // ?code= 뒤에 있는거에여
+                    post["client_id"] = clientId
+                    post["client_secret"] =  clientSecret// 우리가 직접 넣어야됨
+                    post["code"] = code // ?code= 뒤에 있는거에여
                     dsmAuthFunToken(post)  // 이게 api post 시작!! 이 안에 다른 api 2개 들어있어요!!
                     return false
                 } else {
