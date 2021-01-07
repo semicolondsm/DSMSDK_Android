@@ -95,9 +95,9 @@ val checkToken:(DTOuser?)->Unit={
         Log.d("사용자",it.gcn)
     }
 }
-        instance.getUserInformation(accessToken,checkToken)
+instance.getUserInformation(accessToken,checkToken)
 ```
 ---
 ## 더보기
-* [DSMSDK 깃 허브](https://github.com/semicolonDSM/DSMSDK_iOS)
+* [DSMSDK 깃 허브](https://github.com/semicolonDSM/DSMSDK_Android)
 * [example code](https://github.com/jaewonkim1468/DSM_SDK_TEST)
