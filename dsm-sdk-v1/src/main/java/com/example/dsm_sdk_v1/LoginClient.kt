@@ -1,12 +1,10 @@
 package com.example.dsm_sdk_v1
 
 
-import android.os.Build
 import android.os.Bundle
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dsm_sdk_v1.BaseService.gson
 import com.example.dsm_sdk_v1.DsmSdk.Companion.loginCallbackCom
@@ -54,44 +52,43 @@ class LoginClient : AppCompatActivity() {
     private fun dsmAuthFunToken(Post: MutableMap<String, String>) {
         val Basic = BaseService.serverbasic?.postlogin(Post)
 
-        Basic?.enqueue(object : retrofit2.Callback<token> {
-            override fun onFailure(call: Call<token>, t: Throwable) {
+        Basic?.enqueue(object : retrofit2.Callback<DTOtoken> {
+            override fun onFailure(call: Call<DTOtoken>, t: Throwable) {
                 t.printStackTrace()
+                mustDoCallback(null, t)
             }
 
-            override fun onResponse(call: Call<token>, response: Response<token>) {
+            override fun onResponse(call: Call<DTOtoken>, response: Response<DTOtoken>) {
                 val bodyBasic = response.body()
                 val access_token = bodyBasic?.access_token.toString()
                 val refrash_token = bodyBasic?.refresh_token.toString()
-                dsmAuthRefresh(refrash_token) // refresh 토큰을 이용하여 access 토큰을 받는 함수
-                basicFun(access_token) // access 토큰을 요청하는 api 함수
+                val token=DTOtoken(access_token,refrash_token)
+                mustDoCallback(token, null)
+                basicFun(access_token, loginCallbackCom) // access 토큰을 요청하는 api 함수
 
             }
         })
     }
 
-    private fun dsmAuthRefresh(refresh_token: String) {
+    fun refreshToken(refresh_token: String,callback:(String)->Unit){
         val time = System.currentTimeMillis().toString() // 시간  받는거
         val Basic = BaseService.serverbasic?.getrefresh(time, "Bearer $refresh_token")
 
         Basic?.enqueue(object : retrofit2.Callback<refresh> {
             override fun onFailure(call: Call<refresh>, t: Throwable) {
                 t.printStackTrace()
-                mustDoCallback(null, t)
             }
 
             override fun onResponse(call: Call<refresh>, response: Response<refresh>) {
-                val getAccessToken = response.body()?.access_token // 재요청한 어세스 토큰 값
-                val token = getAccessToken?.let { token(it, refresh_token) }
-                if (token != null) {
-                    mustDoCallback(token, null)
-                }
-
+                val accessToken=response.body()?.access_token.toString()
+                callback(accessToken)
             }
         })
     }
 
-    private fun basicFun(access_token: String) {
+
+
+    fun basicFun(access_token: String,callback: (getUser: DTOuser?) -> Unit) {
         val time = System.currentTimeMillis().toString() // 시간 받는거
         val BaseRetrofit = Retrofit.Builder()
                 .baseUrl("http://54.180.98.91:8090/")
@@ -111,7 +108,7 @@ class LoginClient : AppCompatActivity() {
                     val userGcn = response.body()?.gcn.toString()
                     val userEmail = response.body()?.email.toString()
                     val inDto = DTOuser(userName, userGcn, userEmail)
-                    loginCallbackCom(inDto)
+                    callback(inDto)
                     finish()
                 }
             }

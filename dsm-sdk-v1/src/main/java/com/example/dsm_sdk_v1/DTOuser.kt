@@ -2,7 +2,7 @@ package com.example.dsm_sdk_v1
 
 import com.google.gson.annotations.SerializedName
 
-data class token(
+data class DTOtoken(
         @SerializedName("access-token")
         val access_token: String,
         @SerializedName("refresh-token")

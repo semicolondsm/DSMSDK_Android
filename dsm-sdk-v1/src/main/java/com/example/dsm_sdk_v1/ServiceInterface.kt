@@ -16,7 +16,7 @@ interface ServiceInterface {
     @POST("dsmauth/token")
     fun postlogin(
             @Body param: MutableMap<String, String>
-    ) : Call<token>
+    ) : Call<DTOtoken>
 
 
     @GET("dsmauth/refresh?")
