@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.novoda.bintray-release'
-version="1.2.1"
+version="1.2.4"
 
 publish{
     bintrayUser='jaewonkim1468'
     bintrayKey='24f8357110b70f28a4356716ff9922615570195f'
-    groupId='com.semiclone.dsm_sdk_v1'
+    groupId='com.semicolon.dsm_sdk_v1'
     publishVersion=version
     artifactId='dsmauth'
 

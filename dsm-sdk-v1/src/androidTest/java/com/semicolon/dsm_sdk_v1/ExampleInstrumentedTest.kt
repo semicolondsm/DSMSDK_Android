@@ -1,4 +1,4 @@
-package com.example.dsm_sdk_v1
+package com.semicolon.dsm_sdk_v1
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.semiclone.dsm_sdk_v1
+package com.semicolon.dsm_sdk_v1
 
 import com.google.gson.annotations.SerializedName
 

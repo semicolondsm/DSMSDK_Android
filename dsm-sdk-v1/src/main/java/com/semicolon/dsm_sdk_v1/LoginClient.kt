@@ -1,4 +1,4 @@
-package com.semiclone.dsm_sdk_v1
+package com.semicolon.dsm_sdk_v1
 
 
 import android.os.Bundle
@@ -6,10 +6,9 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dsm_sdk_v1.R
-import com.semiclone.dsm_sdk_v1.BaseService.gson
-import com.semiclone.dsm_sdk_v1.DsmSdk.Companion.loginCallbackCom
-import com.semiclone.dsm_sdk_v1.DsmSdk.Companion.mustDoCallback
+import com.semicolon.dsm_sdk_v1.BaseService.gson
+import com.semicolon.dsm_sdk_v1.DsmSdk.Companion.loginCallbackCom
+import com.semicolon.dsm_sdk_v1.DsmSdk.Companion.mustDoCallback
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
