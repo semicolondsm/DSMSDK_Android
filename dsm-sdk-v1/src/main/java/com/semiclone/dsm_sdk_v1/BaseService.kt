@@ -1,4 +1,4 @@
-package com.example.dsm_sdk_v1
+package com.semiclone.dsm_sdk_v1
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -17,7 +17,8 @@ object BaseService {
         .baseUrl("http://54.180.98.91:8080/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
-    val serverbasic: ServiceInterface? = BaseRetrofit.create(ServiceInterface::class.java) // severbasic 변수 사용해서 만드는 거
+    val serverbasic: ServiceInterface? = BaseRetrofit.create(
+        ServiceInterface::class.java) // severbasic 변수 사용해서 만드는 거
 }
 
 

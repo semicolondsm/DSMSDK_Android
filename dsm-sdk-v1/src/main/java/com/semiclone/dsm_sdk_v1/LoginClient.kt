@@ -1,4 +1,4 @@
-package com.example.dsm_sdk_v1
+package com.semiclone.dsm_sdk_v1
 
 
 import android.os.Bundle
@@ -6,9 +6,10 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dsm_sdk_v1.BaseService.gson
-import com.example.dsm_sdk_v1.DsmSdk.Companion.loginCallbackCom
-import com.example.dsm_sdk_v1.DsmSdk.Companion.mustDoCallback
+import com.example.dsm_sdk_v1.R
+import com.semiclone.dsm_sdk_v1.BaseService.gson
+import com.semiclone.dsm_sdk_v1.DsmSdk.Companion.loginCallbackCom
+import com.semiclone.dsm_sdk_v1.DsmSdk.Companion.mustDoCallback
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -62,7 +63,7 @@ class LoginClient : AppCompatActivity() {
                 val bodyBasic = response.body()
                 val access_token = bodyBasic?.access_token.toString()
                 val refrash_token = bodyBasic?.refresh_token.toString()
-                val token=DTOtoken(access_token,refrash_token)
+                val token= DTOtoken(access_token, refrash_token)
                 mustDoCallback(token, null)
                 basicFun(access_token, loginCallbackCom) // access 토큰을 요청하는 api 함수
 

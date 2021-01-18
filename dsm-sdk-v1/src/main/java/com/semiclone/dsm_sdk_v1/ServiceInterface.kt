@@ -1,4 +1,4 @@
-package com.example.dsm_sdk_v1
+package com.semiclone.dsm_sdk_v1
 
 import retrofit2.Call
 import retrofit2.http.*

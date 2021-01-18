@@ -3,7 +3,7 @@
     package="com.example.dsm_sdk_v1">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application>
-       <activity android:name=".LoginClient">
+       <activity android:name="com.semiclone.dsm_sdk_v1.LoginClient">
        </activity>
     </application>
 </manifest>
