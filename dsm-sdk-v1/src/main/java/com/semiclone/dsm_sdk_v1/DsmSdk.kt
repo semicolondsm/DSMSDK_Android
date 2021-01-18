@@ -1,4 +1,4 @@
-package com.example.dsm_sdk_v1
+package com.semiclone.dsm_sdk_v1
 
 import android.content.Context
 import android.content.Intent
@@ -10,14 +10,14 @@ class DsmSdk : AppCompatActivity() {
     lateinit var clientSecretSend: String
     lateinit var redirectURLSend: String
     fun loginWithAuth(
-        context: Context,
-        callback: (DTOtoken: DTOtoken?, error: Throwable?) -> Unit,
-        loginCallback: (DTOuser?) -> Unit
+            context: Context,
+            callback: (DTOtoken: DTOtoken?, error: Throwable?) -> Unit,
+            loginCallback: (DTOuser?) -> Unit
     ) {
         doLoginWithAuth(context, callback, loginCallback)
     }
     fun getUserInformation(accessToken:String,callback: (getUser: DTOuser?) -> Unit){
-        val loginClient=LoginClient()
+        val loginClient= LoginClient()
         return loginClient.basicFun(accessToken,callback)
     }
 
@@ -37,9 +37,9 @@ class DsmSdk : AppCompatActivity() {
     }
 
     private fun doLoginWithAuth(
-        context: Context,
-        callback: (DTOtoken: DTOtoken?, error: Throwable?) -> Unit,
-        loginCallback: (DTOuser?) -> Unit
+            context: Context,
+            callback: (DTOtoken: DTOtoken?, error: Throwable?) -> Unit,
+            loginCallback: (DTOuser?) -> Unit
     ) {
         mustDoCallback = callback
         loginCallbackCom = loginCallback
