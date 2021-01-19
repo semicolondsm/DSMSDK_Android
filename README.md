@@ -18,7 +18,7 @@ DSMSDK를 사용하기 위한 최소 요구사양은 아래와 같습니다.
 ## 설치하기
 1. Module 수준의 build.gradle에 다음 dependencies 를 추가해줍니다.
 ```gradle
-implementation 'com.example.dsm_sdk_v1:dsmauth:1.1.3'
+implementation 'com.semicolon.dsm_sdk_v1:dsmauth:1.2.6'
 ```
 2. __sync now__ 를 클릭합니다.
 
@@ -30,9 +30,9 @@ android:usesCleartextTraffic="true"
 ## 초기화
 1. 사용할 클래스에서 DsmSdk파일을 import 해야합니다.
 ```kotlin
-import com.example.dsm_sdk_v1.DTOuser
-import com.example.dsm_sdk_v1.DsmSdk
-import com.example.dsm_sdk_v1.token
+import com.semicolon.dsm_sdk_v1.DTOuser
+import com.semicolon.dsm_sdk_v1.DsmSdk
+import com.semicolon.dsm_sdk_v1.token
 ```
 2. 발급받은 client id,client secret, 그리고 프로젝트의 redirectURL(없을경우 발급받은 default redirectURL)을 통해서 DsmSdk를 초기화 해야합니다.
 * DsmSdk.instance.initSDK()메서드를 사용합니다.

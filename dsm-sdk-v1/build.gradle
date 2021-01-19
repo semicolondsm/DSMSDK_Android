@@ -11,7 +11,7 @@ publish{
     artifactId='dsmauth'
 
     userOrg='jaewonkim1468'
-    repoName='dsm-sdk'
+    repoName='dsm-sdk-v1'
     desc='This sdk provides login fuction for dsm'
     website='https://github.com/semicolonDSM/DSMSDK_Android'
     repository='https://github.com/semicolonDSM/DSMSDK_Android'
