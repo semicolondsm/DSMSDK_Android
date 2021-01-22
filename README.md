@@ -18,7 +18,7 @@ DSMSDK를 사용하기 위한 최소 요구사양은 아래와 같습니다.
 ## 설치하기
 1. Module 수준의 build.gradle에 다음 dependencies 를 추가해줍니다.
 ```gradle
-implementation 'com.semicolon.dsm_sdk_v1:dsmauth:1.2.6'
+implementation 'com.semicolon.dsm_sdk_v1:dsmauth:1.2.7'
 ```
 2. __sync now__ 를 클릭합니다.
 
