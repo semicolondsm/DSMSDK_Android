@@ -6,9 +6,9 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 
 class DsmSdk : AppCompatActivity() {
-    lateinit var clientIdSend: String
-    lateinit var clientSecretSend: String
-    lateinit var redirectURLSend: String
+    private lateinit var clientIdSend: String
+    private lateinit var clientSecretSend: String
+    private lateinit var redirectURLSend: String
     fun loginWithAuth(
             context: Context,
             callback: (DTOtoken: DTOtoken?, error: Throwable?) -> Unit,
