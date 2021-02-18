@@ -32,7 +32,7 @@ class LoginClient : AppCompatActivity() {
         webview.setWebViewClient(object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                 view.loadUrl(url) // 바뀐 url을 가져옴
-                if (view.url?.contains("code") == true) {
+                return if (view.url?.contains("code") == true) {
                     val changeurl = view.url!! // 바뀐 url
                     //문자열 자르기!!
                     val code = changeurl.substring(changeurl.lastIndexOf("=") + 1) // 리다리엑트 url ?code= 의 뒷부분
@@ -40,9 +40,9 @@ class LoginClient : AppCompatActivity() {
                     post["client_secret"] =  clientSecret// 우리가 직접 넣어야됨
                     post["code"] = code // ?code= 뒤에 있는거에여
                     dsmAuthFunToken(post)  // 이게 api post 시작!! 이 안에 다른 api 2개 들어있어요!!
-                    return false
+                    false
                 } else {
-                    return true
+                    true
                 }
             }
         })
@@ -54,17 +54,20 @@ class LoginClient : AppCompatActivity() {
 
         Basic?.enqueue(object : retrofit2.Callback<DTOtoken> {
             override fun onFailure(call: Call<DTOtoken>, t: Throwable) {
-                t.printStackTrace()
                 mustDoCallback(null, t)
             }
 
             override fun onResponse(call: Call<DTOtoken>, response: Response<DTOtoken>) {
                 val bodyBasic = response.body()
-                val access_token = bodyBasic?.access_token.toString()
-                val refrash_token = bodyBasic?.refresh_token.toString()
-                val token= DTOtoken(access_token, refrash_token)
-                mustDoCallback(token, null)
-                basicFun(access_token, loginCallbackCom) // access 토큰을 요청하는 api 함수
+                if(response.isSuccessful){
+                    val access_token = bodyBasic?.access_token.toString()
+                    val refrash_token = bodyBasic?.refresh_token.toString()
+                    val token= DTOtoken(access_token, refrash_token)
+                    mustDoCallback(token, null)
+                    basicFun(access_token, loginCallbackCom) // access 토큰을 요청하는 api 함수
+                }else{
+                    mustDoCallback(null,null)
+                }
 
             }
         })

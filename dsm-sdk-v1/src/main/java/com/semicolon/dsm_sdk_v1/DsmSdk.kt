@@ -58,6 +58,5 @@ class DsmSdk : AppCompatActivity() {
         lateinit var mustDoCallback: (DTOtoken: DTOtoken?, error: Throwable?) -> Unit
         lateinit var loginCallbackCom: (DTOuser?) -> Unit
         lateinit var appContext: Context
-
     }
 }
