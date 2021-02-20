@@ -1,5 +1,6 @@
 # DSMSDK_Android
-이 문서는 안드로이드에서 DSM_Auth를 사용하는 방법을 안내합니다.    
+이 문서는 안드로이드에서 DSM_Auth를 사용하는 방법을 안내합니다.   
+
 
 **애플리케이션 설정 확인**
 > Android SDK를 사용하려면 DSM_Auth에 프로젝트 정보가 등록되어 있어야 합니다. 자세한 내용은 [프로젝트 등록]()을 참고해주세요.
@@ -36,10 +37,11 @@ import com.semicolon.dsm_sdk_v1.token
 ```
 2. 발급받은 client id,client secret, 그리고 프로젝트의 redirectURL(없을경우 발급받은 default redirectURL)을 통해서 DsmSdk를 초기화 해야합니다.
 * DsmSdk.instance.initSDK()메서드를 사용합니다.
+* 예제의 홀화살괄호``〈 〉``로 감싸져 있는 부분은 사용자가 정의해주셔야합니다. 
 ```kotlin
 val instance=DsmSdk.instance
 
-instance.initSDK("$client_id","$client_secret","$redirect_url")
+instance.initSDK("<$client_id>","<$client_secret>","<$redirect_url>")
 ```
 ---
 ## DSM_Auth 로그인
