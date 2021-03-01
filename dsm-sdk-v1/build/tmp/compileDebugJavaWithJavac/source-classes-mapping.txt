@@ -1,0 +1,2 @@
+com/example/dsm_sdk_v1/BuildConfig.java
+ com.example.dsm_sdk_v1.BuildConfig
