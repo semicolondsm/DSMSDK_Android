@@ -14,7 +14,7 @@ object BaseService {
         .create()
 
     val BaseRetrofit = Retrofit.Builder()
-        .baseUrl("http://54.180.98.91:8080/")
+        .baseUrl("https://developer-api.dsmkr.com/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
     val serverbasic: ServiceInterface? = BaseRetrofit.create(
