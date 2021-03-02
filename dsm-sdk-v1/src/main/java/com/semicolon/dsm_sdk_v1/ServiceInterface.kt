@@ -9,8 +9,6 @@ interface ServiceInterface {
     fun getbasic(
             @Header("access-token") access_token : String,
             @Query ("time")time : String
-
-
             ) : Call<DTOuser>
 
     @POST("dsmauth/token")
