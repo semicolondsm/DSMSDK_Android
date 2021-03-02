@@ -6,7 +6,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-
 object BaseService {
 
     val gson: Gson = GsonBuilder()
@@ -20,5 +19,3 @@ object BaseService {
     val serverbasic: ServiceInterface? = BaseRetrofit.create(
         ServiceInterface::class.java) // severbasic 변수 사용해서 만드는 거
 }
-
-
