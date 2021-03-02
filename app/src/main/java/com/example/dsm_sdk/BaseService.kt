@@ -1,9 +1,10 @@
-package com.semicolon.dsm_sdk_v1
+package com.example.dsm_sdk
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 
 object BaseService {
@@ -13,9 +14,10 @@ object BaseService {
         .create()
 
     val BaseRetrofit = Retrofit.Builder()
-        .baseUrl("https://developer-api.dsmkr.com/")
+        .baseUrl("http://54.180.98.91:8080/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
-    val serverbasic: ServiceInterface? = BaseRetrofit.create(
-        ServiceInterface::class.java) // severbasic 변수 사용해서 만드는 거
+    val serverbasic: ServiceInterface? = BaseRetrofit.create(ServiceInterface::class.java) // severbasic 변수 사용해서 만드는 거
 }
+
+

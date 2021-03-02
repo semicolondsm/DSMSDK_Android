@@ -1,4 +1,4 @@
-package com.semicolon.dsm_sdk_v1
+package com.example.dsm_sdk
 
 import retrofit2.Call
 import retrofit2.http.*
@@ -8,13 +8,15 @@ interface ServiceInterface {
     @GET("v1/info/basic?")
     fun getbasic(
             @Header("access-token") access_token : String,
-            @Query ("time")time : String
-            ) : Call<DTOuser>
+            @Query ("time")time : String,
+
+
+            ) : Call<DTObasic>
 
     @POST("dsmauth/token")
     fun postlogin(
-            @Body param: MutableMap<String, String>
-    ) : Call<DTOtoken>
+            @Body param: MutableMap<String, String>,
+    ) : Call<token>
 
 
     @GET("dsmauth/refresh?")

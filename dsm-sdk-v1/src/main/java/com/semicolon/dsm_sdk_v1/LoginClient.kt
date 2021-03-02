@@ -27,7 +27,7 @@ class LoginClient : AppCompatActivity() {
         webview.settings.javaScriptEnabled = true // 자바스크립트 허용
         webview.webViewClient = WebViewClient()
         webview.webChromeClient = WebChromeClient()
-        webview.loadUrl("http://193.123.237.232/external/login?redirect_url=$redirectUrl&client_id=$clientId")
+        webview.loadUrl("https://developer.dsmkr.com/external/login?redirect_url=$redirectUrl&client_id=$clientId")
         val post = mutableMapOf<String, String>() // post api안 body안에 담을 것
         webview.setWebViewClient(object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -94,7 +94,7 @@ class LoginClient : AppCompatActivity() {
     fun basicFun(access_token: String,callback: (getUser: DTOuser?) -> Unit) {
         val time = System.currentTimeMillis().toString() // 시간 받는거
         val BaseRetrofit = Retrofit.Builder()
-                .baseUrl("http://54.180.98.91:8090/")
+                .baseUrl("https://developer-api.dsmkr.com/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
         val serverbasic: ServiceInterface? = BaseRetrofit.create(ServiceInterface::class.java) // severbasic 변수 사용해서 만드는 거
