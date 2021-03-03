@@ -2,6 +2,7 @@ package com.semicolon.dsm_sdk_v1
 
 
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -20,6 +21,7 @@ class LoginClient : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sdk_layout)
         val webview: WebView = findViewById(R.id.webview)
+        val progressBar=findViewById<View>(R.id.progress_circular)
         val redirectUrl=intent.getStringExtra("get_redirect").toString()
         val clientId=intent.getStringExtra("get_client_id").toString()
         val clientSecret=intent.getStringExtra("get_client_password").toString()
@@ -39,6 +41,8 @@ class LoginClient : AppCompatActivity() {
                     post["client_id"] = clientId
                     post["client_secret"] =  clientSecret// 우리가 직접 넣어야됨
                     post["code"] = code // ?code= 뒤에 있는거에여
+                    webview.visibility= View.INVISIBLE
+                    progressBar.visibility=View.VISIBLE
                     dsmAuthFunToken(post)  // 이게 api post 시작!! 이 안에 다른 api 2개 들어있어요!!
                     false
                 } else {
