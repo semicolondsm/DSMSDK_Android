@@ -29,6 +29,7 @@ class LoginClient : AppCompatActivity() {
         webview.settings.javaScriptEnabled = true // 자바스크립트 허용
         webview.webViewClient = WebViewClient()
         webview.webChromeClient = WebChromeClient()
+        webview.settings.domStorageEnabled=true
         webview.loadUrl("https://developer.dsmkr.com/external/login?redirect_url=$redirectUrl&client_id=$clientId")
         val post = mutableMapOf<String, String>() // post api안 body안에 담을 것
         webview.setWebViewClient(object : WebViewClient() {
